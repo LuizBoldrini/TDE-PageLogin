@@ -58,14 +58,17 @@
         .card_res {
             width: 90%;
         }
-
+        .card_res > h2 {
+            color: #f0ffffde;
+        }
     </style>
 </head>
 <body>
     <div class="main_res">
         <div class="rigth_res">
             <div class="card_res" >
-                <h1>Você está logado, <%= usuario %></h1>
+                <h1>Você está logado! Seja bem vindo:</h1>
+                <h2><%= usuario %></h2>
         </div>
     </div>
 </body>
