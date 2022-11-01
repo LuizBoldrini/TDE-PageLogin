@@ -3,21 +3,25 @@ const CadastroController = require('./CadastroController')
 require('dotenv').config();
 
 
-let usuario = process.env.USUARIO
-let senha = process.env.SENHA
+let usuario 
+let senha 
 
 class LogController {
 
     async logPost(req, res) {
         try {
-            if(req.body.senha == senha && req.body.usuario == usuario){
-                req.session.usuario = usuario
-                
-                return res.render('log', {usuario: usuario})
-            } else {
-                return res.render('index')
-            }
+            const user = req.body.usuario
+            const senha = req.body.senha
+            const procuraUser = await Cadastro.findOne({'usuario': user, 'senha': senha})
 
+            if(!procuraUser){
+                return res.render('index')
+
+            } else {
+                req.session.usuario = user
+                
+                return res.render('log', {usuario: user})
+            }
         } catch(error) {
             return res.send(error)
         }

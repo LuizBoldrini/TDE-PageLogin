@@ -7,7 +7,7 @@ class CadastroController {
         try {
             const reqBody = req.body
 
-            if(req.body.senha == req.body.confirma){
+            if(reqBody.senha == reqBody.confirma){
                 req.session.usuario = usuario
                 const cadastroCriado = await Cadastro.create(reqBody)
 
