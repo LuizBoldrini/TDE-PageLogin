@@ -13,7 +13,7 @@ class CadastroController {
 
                 return res.render('log', {usuario: usuario})
             } else {
-                return res.render('cadastro')
+                return res.render('cadastroError')
                 send(Error)
             }
 

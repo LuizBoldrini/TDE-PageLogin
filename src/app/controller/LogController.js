@@ -1,6 +1,5 @@
 const Cadastro = require('../models/Cadastro')
 const CadastroController = require('./CadastroController')
-require('dotenv').config();
 
 
 let usuario 
@@ -15,7 +14,7 @@ class LogController {
             const procuraUser = await Cadastro.findOne({'usuario': user, 'senha': senha})
 
             if(!procuraUser){
-                return res.render('index')
+                return res.render('logError')
 
             } else {
                 req.session.usuario = user
