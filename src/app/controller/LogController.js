@@ -1,9 +1,4 @@
 const Cadastro = require('../models/Cadastro')
-const CadastroController = require('./CadastroController')
-
-
-let usuario 
-let senha 
 
 class LogController {
 

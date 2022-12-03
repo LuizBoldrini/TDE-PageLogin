@@ -6,8 +6,9 @@ class CadastroController {
         const usuario = req.body.usuario
         try {
             const reqBody = req.body
+            const procuraUser = await Cadastro.findOne({'usuario': usuario})
 
-            if(reqBody.senha == reqBody.confirma){
+            if(reqBody.senha == reqBody.confirma && !procuraUser){
                 req.session.usuario = usuario
                 const cadastroCriado = await Cadastro.create(reqBody)
 
